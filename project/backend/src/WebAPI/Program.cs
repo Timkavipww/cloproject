@@ -1,7 +1,7 @@
 using Scalar.AspNetCore;
 using WebAPI.Configuration;
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -10,7 +10,6 @@ var app = builder.Build();
 
 app.MapOpenApi();
 app.MapScalarApiReference();
-app.UseHttpsRedirection();
 app.UseRouting();
 app.MapControllers();
 
